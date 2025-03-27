@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: black; /* This will now be visible */
+    color: white; /* Adjust text color for visibility on black */
+}
+
+/* Define CSS Variable for Logo Size */
+:root {
+    --logo-size: 230px;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: black;
+    padding: 15px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    
+}
+
+.logo-img {
+    width: var(--logo-size);
+    height: auto;
+    max-width: 100%;
+    padding: 5px;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    background-color: white; /* Changed to white for visibility on black */
+    margin: 6px 0;
+    transition: 0.3s;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: #ffde59;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* Main Content */
+.content {
+    min-height: 100vh;
+    /* Remove background-color to let body black show through */
+    padding: 280px 20px 20px;
+    text-align: center;
+    color: white; 
+    
+}
+
+.content h1 {
+    font-size: 36px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
+    color: #ffde59;
+}
+
+.content p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Footer */
+.footer {
+    /* Remove or match body background */
+    background-color: black;
+    color: #d3d3d3;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Responsive Design with Animation and Logo Adjustments */
+@media (max-width: 600px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: black; /* Match body/navbar */
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+    }
+
+    .nav-links.active {
+        max-height: 200px;
+        padding: 20px 0;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .logo-img {
+        width: calc(var(--logo-size) * 0.8);
+    }
+}
+
+@media (max-width: 400px) {
+    .logo-img {
+        width: calc(var(--logo-size) * 0.6);
+    }
+}
+
+.cursor {
+	pointer-events: none;
+	position: fixed;
+	display: block;
+	border-radius: 0;
+	mix-blend-mode: difference;
+	top: 0;
+	left: 0;
+	z-index: 9999999999999999;  
+  }
+  
+  .circle {
+	  position: absolute;
+	  display: block;
+	  width: 26px;
+	  height: 26px;
+	  border-radius: 20px;
+	  background-color: rgb(0, 0, 0)
+  }
+  
