@@ -7,6 +7,7 @@ git commit -m "your commit message"
 git push
 
 Pull command:
+git stash       (only when changes are to be deleted)
 git pull
 
-.
+
