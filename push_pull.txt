@@ -1,0 +1,12 @@
+Set-up command for auto-push (use in a new terminal window):
+while ($true) { git pull; Start-Sleep -Seconds 60 }
+
+Push command:
+git add .
+git commit -m "your commit message"
+git push
+
+Pull command:
+git pull
+
+
