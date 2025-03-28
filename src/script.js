@@ -44,3 +44,10 @@ function animateCircles() {
 }
 
 animateCircles();
+
+if (window.innerWidth <=600) {
+  const cur = document.querySelector('.cursor')
+  if (cur) {
+    cursor.remove()
+  }
+}
