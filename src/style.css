@@ -13,7 +13,12 @@
 }
 
 body {
+    overflow: hidden;
     background-color: black; /* This will now be visible */
+    -webkit-user-select: none;
+    user-drag: none;
+	-webkit-user-drag: none;
+	-moz-user-select: none;
     color: white; /* Adjust text color for visibility on black */
 }
 
@@ -47,6 +52,7 @@ body {
     height: auto;
     max-width: 100%;
     padding: 5px;
+    -webkit-user-select: none;
     user-drag: none;
 	-webkit-user-drag: none;
 	-moz-user-select: none;   /*ignore the yellow underlines. it works (Asctoz
