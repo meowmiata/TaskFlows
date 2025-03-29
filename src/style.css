@@ -1,10 +1,10 @@
+/* Existing styles (unchanged) */
 .prevent-select {
   -webkit-user-select: none; 
   -ms-user-select: none; 
   user-select: none; 
 }
 
-/* wsg */
 * {
   margin: 0;
   padding: 0;
@@ -26,12 +26,10 @@ body {
   color: white; 
 }
 
-/* Define CSS Variable for Logo Size */
 :root {
   --logo-size: 14.375rem; /* 230px */
 }
 
-/* Navbar Styles */
 .navbar {
   background-color: black;
   padding: 0.9375rem; /* 15px */
@@ -96,29 +94,33 @@ body {
   color: white;
 }
 
-/* Main Content */
+/* Updated Main Content */
 .content {
   min-height: 100vh;
-  padding: 12.5rem 1.25rem 1.25rem; /* 200px 20px 20px */
+  padding: 10vh 5vw 5vh; /* Use vh and vw for responsive padding */
   text-align: center;
-  color: white; 
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .content h1 {
-  font-size: 2.8125rem; /* 45px */
+  font-size: clamp(2rem, 5vw, 2.8125rem); /* Scales between 2rem and 2.8125rem based on viewport width */
   font-family: 'Montserrat', sans-serif;
-  padding-bottom: 1.875rem; /* 30px */
+  padding-bottom: 2vh; /* Use vh for consistent spacing */
   color: #e3ca69;
 }
 
 .content h2 {
-  font-size: 1.4375rem; /* 23px */
-  padding-bottom: 0.5rem; /* 8px */
+  font-size: clamp(1.2rem, 3vw, 1.4375rem); /* Scales between 1.2rem and 1.4375rem */
+  padding-bottom: 1vh;
 }
 
 .content p {
-  font-size: 1.3125rem; /* 21px */
-  max-width: 50rem; /* 800px */
+  font-size: clamp(1rem, 2.5vw, 1.3125rem); /* Scales between 1rem and 1.3125rem */
+  max-width: 80vw; /* Use vw for responsive width */
   margin: 0 auto;
 }
 
@@ -134,47 +136,99 @@ body {
   bottom: 0;
 }
 
-/* Responsive Design with Animation and Logo Adjustments */
+/* Updated Button Styles */
+.Btn {
+  position: relative; /* Change to relative for better control within the content */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: clamp(15rem, 20vw, 20rem); /* Scales between 15rem and 20rem */
+  height: clamp(2.5rem, 5vh, 3rem); /* Scales between 2.5rem and 3rem */
+  border: none;
+  padding: 0 1.5rem;
+  background-color: rgb(208, 255, 0);
+  color: rgb(221, 227, 230);
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px rgb(215, 241, 136);
+  transition-duration: 0.5s;
+  margin: 3vh auto 0; /* Center horizontally with auto margins */
+}
+
+.svg {
+  width: 13px;
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+  fill: white;
+  transition-duration: 0.3s;
+}
+
+.Btn:hover {
+  color: transparent;
+}
+
+.Btn:hover .svg {
+  right: 43%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  transition-duration: 0.3s;
+}
+
+.Btn:active {
+  transform: translate(3px, 3px);
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 0px rgb(219, 255, 61);
+}
+
+/* Updated Media Queries */
 @media (max-width: 600px) {
   .hamburger {
-      display: block;
+    display: block;
   }
 
   .nav-links {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 3.75rem; /* 60px */
-      left: 0;
-      width: 100%;
-      background-color: black;
-      padding: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 3.75rem; /* 60px */
+    left: 0;
+    width: 100%;
+    background-color: black;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
   }
 
   .nav-links.active {
-      max-height: 12.5rem; /* 200px */
-      padding: 1.25rem 0; /* 20px */
+    max-height: 12.5rem; /* 200px */
+    padding: 1.25rem 0; /* 20px */
   }
 
   .nav-links li {
-      margin: 0.9375rem 0; /* 15px */
-      text-align: center;
+    margin: 0.9375rem 0; /* 15px */
+    text-align: center;
   }
 
   .logo-img {
-      width: calc(var(--logo-size) * 0.8);
+    width: calc(var(--logo-size) * 0.8);
+  }
+
+  body {
+    overflow: visible;
   }
 }
 
 @media (max-width: 400px) {
   .logo-img {
-      width: calc(var(--logo-size) * 0.6);
+    width: calc(var(--logo-size) * 0.6);
   }
 }
 
+/* Existing cursor styles (unchanged) */
 .cursor {
   pointer-events: none;
   position: fixed;
@@ -192,7 +246,7 @@ body {
   width: 1.25rem; /* 20px */
   height: 1.25rem; /* 20px */
   border-radius: 1.25rem;
-  background-color: rgb(0, 0, 0)
+  background-color: rgb(0, 0, 0);
 }
 
 .supercharged {
@@ -224,64 +278,4 @@ body {
 .supercharged:hover::after,
 .supercharged:hover::before {
   transform: scaleX(1);
-}
-.Btn {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 20vw;
-  height: 5vh;
-  border: none;
-  padding: 0px 20px;
-  background-color: rgb(208, 255, 0);
-  color: rgb(221, 227, 230);
-  font-weight: 500;
-  cursor: pointer;
-  border-radius: 10px;
-  box-shadow: 5px 5px 0px rgb(215, 241, 136);
-  transition-duration: .5s;
-  margin-left: 18em;
-  margin-top: 5vh;
-}
-
-@media (max-width:650px) {
-  .Btn{
-    margin-left: 30vw;
-    margin-top: 5vh;
-  }
-}
-
-@media (max-width:1920px) {
-  .btn{
-    margin-left: 70vw;
-    margin-top: 5vh;
-  }
-}
-
-.svg {
-  width: 13px;
-  position: absolute;
-  right: 0;
-  margin-right: 20px;
-  fill: white;
-  transition-duration: .3s;
-}
-
-.Btn:hover {
-  color: transparent;
-}
-
-.Btn:hover svg {
-  right: 43%;
-  margin: 0;
-  padding: 0;
-  border: none;
-  transition-duration: .3s;
-}
-
-.Btn:active {
-  transform: translate(3px , 3px);
-  transition-duration: .3s;
-  box-shadow: 2px 2px 0px rgb(219, 255, 61);
 }
